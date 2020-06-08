@@ -1,0 +1,24 @@
+{
+    "name": "kennith/artisan-version",
+    "description": "Increment version and add to version control",
+    "type": "library",
+    "require": {
+        "laravel/framework": "v7.1.2"
+    },
+    "require-dev": {
+        "psr/log": "v1.1.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kennith Leung",
+            "email": "kennith.leung@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ArtisanVersion\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

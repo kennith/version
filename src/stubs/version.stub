@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'major' => {{ major }},
+    'minor' => {{ minor }},
+    'patch' => {{ patch }},
+];
