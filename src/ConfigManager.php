@@ -1,9 +1,9 @@
 <?php
 
-namespace ArtisanVersion;
+namespace Kennith\Version;
 
 /**
- * Artisan Version
+ * Config Manager
  */
 class ConfigManager
 {
@@ -27,7 +27,7 @@ class ConfigManager
      * Load configuration file
      * @param  string $configFile Path to the config file
      */
-    protected function loadConfigurationFile(string $configFile)
+    protected function loadConfigurationFile(String $configFile)
     {
         // if file does not exist, create a brand new one
         if(!file_exists ($configFile)) {

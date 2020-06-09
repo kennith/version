@@ -1,9 +1,8 @@
 {
-    "name": "kennith/artisan-version",
+    "name": "kennith/version",
     "description": "Increment version and add to version control",
     "type": "library",
     "require": {
-        "laravel/framework": "v7.1.2"
     },
     "require-dev": {
         "psr/log": "v1.1.3"
@@ -17,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "ArtisanVersion\\": "src/"
+            "Kennith\\Version\\": "src/"
         }
     },
     "minimum-stability": "stable"
