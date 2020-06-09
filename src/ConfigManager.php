@@ -13,27 +13,28 @@ class ConfigManager
 
     private $configFile;
 
-    public function __construct()
+    public function __construct($configPath = 'version.php')
     {
-        $this->configFile = __DIR__.'/config.php';
+        $this->configFile = $configPath;
+
         $this->major = 0;
         $this->minor = 0;
         $this->patch = 0;
 
-        $this->loadConfigurationFile($this->configFile);
+        $this->loadConfigurationFile();
     }
 
     /**
      * Load configuration file
      * @param  string $configFile Path to the config file
      */
-    protected function loadConfigurationFile(String $configFile)
+    protected function loadConfigurationFile()
     {
         // if file does not exist, create a brand new one
-        if(!file_exists ($configFile)) {
+        if (!file_exists($this->configFile)) {
             $this->saveConfigurationFile();
         }
-        $version = require $configFile;
+        $version = require $this->configFile;
 
         $this->major = $version['major'];
         $this->minor = $version['minor'];
@@ -101,15 +102,19 @@ class ConfigManager
         $this->saveConfigurationFile();
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function set($core)
     {
-        $this->publishes([
-            __DIR__.'/config/version.php' => config_path('version.php'),
-        ]);
+        switch ($core) {
+            case 'major':
+            $this->setMajor();
+            break;
+            case 'minor':
+            $this->setMinor();
+            break;
+            case 'patch':
+            $this->setPatch();
+            break;
+        }
+        return;
     }
 }
