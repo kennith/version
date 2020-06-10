@@ -1,4 +1,4 @@
-![Pest](https://github.com/kennith/version/workflows/pest/badge.svg)
+![pest](https://github.com/kennith/version/workflows/pest/badge.svg?branch=master)
 
 # Version
 
