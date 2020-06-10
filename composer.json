@@ -33,5 +33,10 @@
                 "version": "Kennith\\Version\\Facade\\Version"
             }
         }
-    }
+    },
+    "scripts": {
+      "test": [
+        "pest"
+    ]
+  }
 }
