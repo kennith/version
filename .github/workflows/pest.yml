@@ -1,4 +1,4 @@
-name: Pest
+name: pest
 
 on:
   push:
