@@ -7,7 +7,8 @@
     "require-dev": {
         "phpunit/phpunit": "^9.2",
         "psr/log": "v1.1.3",
-        "orchestra/testbench": "^5.3"
+        "orchestra/testbench": "^5.3",
+        "pestphp/pest": "^0.1.5"
     },
     "license": "MIT",
     "authors": [
@@ -21,7 +22,8 @@
             "Kennith\\Version\\": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
