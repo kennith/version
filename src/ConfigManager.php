@@ -48,9 +48,11 @@ class ConfigManager
     protected function saveConfigurationFile()
     {
         $content = file_get_contents(__DIR__.'/stubs/version.stub');
-        $content = str_replace('{{ major }}', $this->major, $content);
-        $content = str_replace('{{ minor }}', $this->minor, $content);
-        $content = str_replace('{{ patch }}', $this->patch, $content);
+
+        $search = ['{{ major }}', '{{ minor }}', '{{ patch }}'];
+        $replace = [$this->major, $this->minor, $this->patch];
+
+        $content = str_replace($search, $replace, $content);
 
         $write = file_put_contents(
             $this->configFile,
@@ -102,7 +104,11 @@ class ConfigManager
         $this->saveConfigurationFile();
     }
 
-    public function set($core)
+    /**
+     * Set version
+     * @param String $core major|minor|patch
+     */
+    public function set($core): void
     {
         switch ($core) {
             case 'major':
@@ -115,6 +121,5 @@ class ConfigManager
             $this->setPatch();
             break;
         }
-        return;
     }
 }
