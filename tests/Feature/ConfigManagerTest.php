@@ -18,26 +18,26 @@ afterEach(function () use ($file) {
 
 test('version should be 0.0.0', function () use ($file) {
     $configManager = new ConfigManager($file);
-    $this->assertEquals('0.0.0', $configManager->getCurrentVersion());
+    assertEquals('0.0.0', $configManager->getCurrentVersion());
 });
 
 test('should increment major from version 1 to major version 2', function () use ($file) {
     $configManager = new ConfigManager($file);
-    $this->assertEquals('0.0.0', $configManager->getcurrentVersion());
+    assertEquals('0.0.0', $configManager->getcurrentVersion());
 	$configManager->setMajor();
-    $this->assertEquals('1.0.0', $configManager->getcurrentVersion());
+    assertEquals('1.0.0', $configManager->getcurrentVersion());
 });
 
 test('should increment minor to 0.1.0', function() use ($file) {
     $configManager = new ConfigManager($file);
-    $this->assertEquals('0.0.0', $configManager->getcurrentVersion());
+    assertEquals('0.0.0', $configManager->getcurrentVersion());
     $configManager->setMinor();
-    $this->assertEquals('0.1.0', $configManager->getcurrentVersion());
+    assertEquals('0.1.0', $configManager->getcurrentVersion());
 });
 
 test('should increment major.minor.patch to 3.1.8', function() use ($file) {
     $configManager = new ConfigManager($file);
-    $this->assertEquals('0.0.0', $configManager->getcurrentVersion());
+    assertEquals('0.0.0', $configManager->getcurrentVersion());
 
     foreach(range(0,2) as $key => $value) {
         $configManager->setMajor();
@@ -49,5 +49,5 @@ test('should increment major.minor.patch to 3.1.8', function() use ($file) {
         $configManager->setPatch();
     }
 
-    $this->assertEquals('3.1.8', $configManager->getcurrentVersion());
+    assertEquals('3.1.8', $configManager->getcurrentVersion());
 });
