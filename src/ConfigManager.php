@@ -77,6 +77,21 @@ class ConfigManager
         return implode('.', $version);
     }
 
+    public function getMajor()
+    {
+        return $this->major;
+    }
+
+    public function getMinor()
+    {
+        return $this->minor;
+    }
+    
+    public function getPatch()
+    {
+        return $this->patch;
+    }
+
     /**
      * Increment of 1 to major
      */

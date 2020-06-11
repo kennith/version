@@ -3,6 +3,7 @@ namespace Kennith\Version;
 
 use Illuminate\Support\ServiceProvider;
 use Kennith\Version\Commands\VersionCommand;
+use Kennith\Version\View\Components\VersionComponent;
 
 /**
  * Version Service Provider
@@ -17,8 +18,14 @@ class VersionServiceProvider extends ServiceProvider
             ]);
         }
 
+        $this->loadViewsFrom(__DIR__.'/resources/views/version', 'version');
+        $this->loadViewComponentsAs('version', [
+            VersionComponent::class,
+        ]);
+
         $this->publishes([
-            __DIR__.'/../config/version.php' => config_path('version.php')
+            __DIR__.'/../config/version.php' => config_path('version.php'),
+            __DIR__.'/resources/views/version' => resource_path('views/vendor/version'),
         ]);
     }
 
